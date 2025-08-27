@@ -8,10 +8,6 @@ const font = DM_Sans({
   subsets: ["latin"],
 });
 
-const geistMono = DM_Sans({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Fuzzie ",
@@ -23,10 +19,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
+  return (<html lang="en">
       <body
-        className={`${font} antialiased`}
+        className={`${font.className} antialiased`}
       >
         <ThemeProvider
             attribute="class"
