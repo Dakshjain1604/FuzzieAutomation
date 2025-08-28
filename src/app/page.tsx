@@ -1,13 +1,43 @@
+import { Button } from "@/components/ui/button";
+import { ContainerScroll } from "@/components/ui/global/container-scroll-animation";
+import { InfiniteMovingCards } from "@/components/ui/global/infinite-moving-cards";
 import Navbar from "@/components/ui/global/navbar";
+import { clients } from "@/lib/constants";
 import Image from "next/image";
 
 export default function Home() {
   return <main>
     <Navbar/>
     <section className="h-screen w-full bg-neutral-950 rounded-md !overflow-visilbe realtive flex flex-col items-center antialiased">
-      <div className="absolute inset-0 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%at50%_10%,#000_35%,#233_100%)]">
+      <div className="absolute inset-0 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_35%,#233_100%)]">
 
       </div>
+      <div className="flex flex-col mt-[-100px] md:mt-[-50px]">
+        <ContainerScroll titleComponent={
+          <div className="flex items-center justify-center flex-col">
+            <Button size={'lg'}
+            className="p-8 mb-8 md:mb-0 text-2xl w-full sm:2-fit broder-t-2 rounded-full border-[#4d4d4d] bg-[#1f1f1f] hover:bg-white group transitioin-all flex items-center justify-center gap-4 hover:shadow-xl hover:shadow-netural-500 duration-500"
+            >
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-neutral-500 to-neutral-600  md:text-center font-sans group-hover:bg-gradient-to-r group-hover:from-black goup-hover:to-black">
+                    Start For Free Today
+                  </span>
+            </Button>
+            <h1 className="text-5xl md:text-8xl  bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-600 font-sans font-bold">
+                  Automate Your Work With Fuzzie
+            </h1>
+          </div>
+
+        }></ContainerScroll>
+      </div>
     </section>
+    <InfiniteMovingCards
+        className="md:mt-[18rem] mt-[-100px]"
+        items={clients}
+        direction="right"
+        speed="slow"
+      />
+      <section>
+        <Heroparallax products={products}></Heroparallax>
+      </section>
   </main>
   }
